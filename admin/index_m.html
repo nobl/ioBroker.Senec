@@ -66,46 +66,111 @@
 <body>
 
     <div class="m adapter-container">
-
-        <div class="row">
-            <div class="col s12 m6 l3">
-                <img src="senec.png" class="logo">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col s12 m6 l3 input-field">
-                <input type="text" class="value" id="senecip" />
-                <label for="senecip" class="translate">SENEC System</label>
-				<span class="tooltiptext translate">Here you enter the IP or FQDN of your SENEC System</span>
-            </div>
-			<div class="col s12 m6 l3 input-field">
-				<input type="number" min="1" max="3600" class="value" id="interval" />
-				<label for="interval" class="translate">Polling Interval (seconds) High Priority Data</label>
-				<span class="tooltiptext translate">Here you can define the polling interval [min 1, max 3600 seconds]. Default = 10.</span>
-			</div>
-			<div class="col s12 m6 l3 input-field">
-				<input type="number" min="60" max="3600" class="value" id="intervalLow" />
-				<label for="intervalLow" class="translate">Polling Interval (minutes) Low Priority Data</label>
-				<span class="tooltiptext translate">Here you can define the polling interval for low priority data [min 60, max 3600 minutes]. Default = 60.</span>
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s6 m4"><a href="#tab-main" class="translate active">Main settings</a></li>
+					<li class="tab col s6 m4"><a href="#tab-polling" class="translate">Polling priority</a></li>
+				</ul>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col s12 m6 l3 input-field">
-				<input type="number" min="1" max="3600" class="value" id="pollingTimeout" />
-				<label for="pollingTimeout" class="translate">Request-Timeout (ms)</label>
-				<span class="tooltiptext translate">Here you define the request timeout when polling from SENEC [min 1000, max 100000]. Default = 5000.</span>
+			<div id="tab-main" class="col s12 page">
+				<div class="row">
+					<div class="col s12 m6 l3">
+						<img src="senec.png" class="logo">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 m6 l3 input-field">
+						<input type="text" class="value" id="senecip" />
+						<label for="senecip" class="translate">SENEC System</label>
+						<span class="tooltiptext translate">iptooltip</span>
+					</div>
+					<div class="col s12 m6 l3 input-field">
+						<input type="number" min="1" max="3600" class="value" id="interval" />
+						<label for="interval" class="translate">pollRateHigh</label>
+						<span class="tooltiptext translate">pollRateHighTooltip</span>
+					</div>
+					<div class="col s12 m6 l3 input-field">
+						<input type="number" min="60" max="3600" class="value" id="intervalLow" />
+						<label for="intervalLow" class="translate">pollRateLow</label>
+						<span class="tooltiptext translate">pollRateLowTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 m6 l3 input-field">
+						<input type="number" min="1" max="3600" class="value" id="pollingTimeout" />
+						<label for="pollingTimeout" class="translate">pollTimeOut</label>
+						<span class="tooltiptext translate">pollTimeOutToolip</span>
+					</div>
+					<div class="col s12 m6 l3 input-field">
+						<input type="number" min="0" max="999" class="value" id="retries" />
+						<label for="retries" class="translate">pollRetry</label>
+						<span class="tooltiptext translate">pollRetryTooltip</span>
+					</div>
+					<div class="col s12 m6 l3 input-field">
+						<input type="number" min="1" max="10" class="value" id="retrymultiplier" />
+						<label for="retrymultiplier" class="translate">pollRetryFac</label>
+						<span class="tooltiptext translate">pollRetryFacToolip</span>
+					</div>
+				</div>
 			</div>
-            <div class="col s12 m6 l3 input-field">
-                <input type="number" min="0" max="999" class="value" id="retries" />
-                <label for="retries" class="translate">Polling Retries</label>
-				<span class="tooltiptext translate">Here you enter how often you want the adapter to retry polling in case of error [min 0, max 999]. 0 = never, 999 = unlimited. Default = 10.</span>
-            </div>
-			<div class="col s12 m6 l3 input-field">
-                <input type="number" min="1" max="10" class="value" id="retrymultiplier" />
-                <label for="retrymultiplier" class="translate">Polling Retry Factor</label>
-				<span class="tooltiptext translate">Here you enter how you want to space retries apart of each other. n'th retry will happen after Interval * Multiplier * n seconds. [min 1, max 10]. Default = 2.</span>
-            </div>
+			<div id="tab-polling" class="col s12 page">
+				<div class="row">
+					<div class="col s12">
+						<p class="subtitle translate">prioIntro</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioENERGY" />
+						<label for="highPrioENERGY" class="translate">energyPrio</label>
+						<span class="tooltiptext translate">energyPrioTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioPV1" />
+						<label for="highPrioPV1" class="translate">PV1Prio</label>
+						<span class="tooltiptext translate">PV1PrioTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioPWR_UNIT" />
+						<label for="highPrioPWR_UNIT" class="translate">PWR_UNITPrio</label>
+						<span class="tooltiptext translate">PWR_UNITPrioTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioPM1OBJ1" />
+						<label for="highPrioPM1OBJ1" class="translate">PM1OBJ1Prio</label>
+						<span class="tooltiptext translate">PM1OBJ1PrioTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioPM1OBJ2" />
+						<label for="highPrioPM1OBJ2" class="translate">PM1OBJ2Prio</label>
+						<span class="tooltiptext translate">PM1OBJ2PrioTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioSTATISTIC" />
+						<label for="highPrioSTATISTIC" class="translate">statisticPrio</label>
+						<span class="tooltiptext translate">statisticPrioTooltip</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 input-field">
+						<input type="text" class="value" id="highPrioEXTRA" />
+						<label for="highPrioEXTRA" class="translate">extraPrio</label>
+						<span class="tooltiptext translate">extraPrioTooltip</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

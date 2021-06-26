@@ -301,7 +301,14 @@
 		"intervalLow": 60,
 		"pollingTimeout": 5000,
 		"retries": 10,
-		"retrymultiplier": 2
+		"retrymultiplier": 2,
+		"highPrioENERGY": "",
+		"highPrioPV1": "",
+		"highPrioPWR_UNIT": "",
+		"highPrioPM1OBJ1": "",
+		"highPrioPM1OBJ2": "",
+		"highPrioSTATISTIC": "",
+		"highPrioEXTRA": ""
     },
     "objects": [],
     "instanceObjects": [{
